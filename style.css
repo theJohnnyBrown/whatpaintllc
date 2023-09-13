@@ -141,30 +141,19 @@ div.frame-wrapper {
     gap: 20px;
 }
 
-.project-images img {
-    width: 100%;
-    height: auto;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    height: 235px;
-}
-
-
-.project-images {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
 .project-image-container {
     width: 100%;
-    height: 200px; /* or whatever fixed height you desire */
+    height: 235px; /* Adjusting height to match what was specified in the previous img selector */
     overflow: hidden;
     position: relative;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Moving box-shadow from the img to the container */
 }
 
 .project-image-container img {
     width: 100%;
-    height: auto;
+    height: 100%; /* Adjusted to fit the container */
+    object-fit: cover; /* Ensures image covers without stretching */
+    object-position: center; /* Centers the image in the container */
     position: absolute;
     top: 50%;
     left: 50%;
