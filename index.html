@@ -92,11 +92,19 @@
                 <div class="gallery">
                     {% assign sorted_projects = site.projects | sort: 'ordering' | reverse %}
                     {% for project in sorted_projects offset:1 limit:5 %}
+                      <item class="homepage-project">
                         {% for image in project.images %}
                             <a href="{{ image }}" {% if forloop.first %}class="landscape"{% endif %}><img src="{{ image }}" alt="{{ project.title }}" /></a>
                             {% if forloop.first %}
-                                <p>{{ project.description | default: "Project " | append: project.ordering }}</p>
+                              <p class="homepage-project-description">
+                               {% if project.description %}
+                                 {{ project.description }}
+                               {% else %}
+                                 {{ "Project " | append: project.ordering }}
+                               {% endif %}
+                              </p>
                             {% endif %}
+                          </item>
                         {% endfor %}
                     {% endfor %}
                 </div>
@@ -113,6 +121,7 @@
                 <div class="gallery">
                     {% assign sorted_projects = site.projects | sort: 'ordering' | reverse %}
                     {% for project in sorted_projects offset:6 limit:3 %}
+
                         {% for image in project.images %}
                             <a href="{{ image }}" {% if forloop.first %}class="landscape"{% endif %}><img src="{{ image }}" alt="{{ project.title }}" /></a>
                         {% endfor %}
