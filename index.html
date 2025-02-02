@@ -114,7 +114,7 @@
                     {% assign sorted_projects = site.projects | sort: 'ordering' | reverse %}
                     {% for project in sorted_projects limit:5 %}
                         {% for image in project.images %}
-                            <a href="{{ image }}" class="landscape"><img src="{{ image }}" alt="{{ project.title }}" /></a>
+                            <a href="{{ image }}" {% if forloop.first %}class="landscape"{% endif %}><img src="{{ image }}" alt="{{ project.title }}" /></a>
                         {% endfor %}
                     {% endfor %}
                 </div>
