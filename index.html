@@ -73,14 +73,10 @@
 
                 <!-- Gallery -->
                 <div class="gallery">
-                    <a href="img/project14-1.jpg" class="landscape"><img src="img/project14-1.jpg" alt="exterior paint project for investor in Knoxville, TN" /></a>
-                    <a href="img/project14-2.jpg"><img src="img/project14-2.jpg" alt="exterior paint project for investor in Knoxville, TN" /></a>
-                    <a href="img/project14-3.jpg"><img src="img/project14-3.jpg" alt="exterior paint project for investor in Knoxville, TN" /></a>
-
-                    <a href="img/project14-4.jpg" class="landscape"><img src="img/project14-4.jpg" alt="" /></a>
-                    <a href="img/project14-5.jpg"><img src="img/project14-5.jpg" alt="" /></a>
-                    <a href="img/project14-6.jpg"><img src="img/project14-6.jpg" alt="" /></a>
-                    <a href="img/project14-7.jpg" class="landscape"><img src="img/project14-7.jpg" alt="" /></a>
+                    {% assign latest_project = site.projects | sort: 'ordering' | last %}
+                    {% for image in latest_project.images %}
+                        <a href="{{ image }}" {% if forloop.first %}class="landscape"{% endif %}><img src="{{ image }}" alt="{{ latest_project.title }}" /></a>
+                    {% endfor %}
                 </div>
             </div>
         </section>
@@ -94,14 +90,12 @@
 
                 <!-- Gallery -->
                 <div class="gallery">
-                    <a href="img/project13-1.jpg" class="landscape"><img src="img/project13-1.jpg" alt="exterior paint project for investor in Knoxville, TN" /></a>
-                    <a href="img/project13-2.jpg"><img src="img/project13-2.jpg" alt="exterior paint project for investor in Knoxville, TN" /></a>
-                    <a href="img/project12-1.jpg"><img src="img/project12-1.jpg" alt="exterior paint project for investor in Knoxville, TN" /></a>
-
-                    <a href="img/portfolio6.jpg" class="landscape"><img src="img/portfolio6.jpg" alt="" /></a>
-                    <a href="img/portfolio4.jpg"><img src="img/portfolio4.jpg" alt="" /></a>
-                    <a href="img/portfolio5.jpg"><img src="img/portfolio5.jpg" alt="" /></a>
-                    <a href="img/portfolio2.jpg" class="landscape"><img src="img/portfolio2.jpg" alt="" /></a>
+                    {% assign sorted_projects = site.projects | sort: 'ordering' | reverse %}
+                    {% for project in sorted_projects offset:1 limit:5 %}
+                        {% for image in project.images %}
+                            <a href="{{ image }}" {% if forloop.first %}class="landscape"{% endif %}><img src="{{ image }}" alt="{{ project.title }}" /></a>
+                        {% endfor %}
+                    {% endfor %}
                 </div>
             </div>
         </section>
