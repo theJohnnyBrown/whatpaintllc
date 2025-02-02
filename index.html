@@ -111,12 +111,12 @@
             </header>
             <div class="content">
                 <div class="gallery">
-                  <a href="img/portfolio7.jpg" ><img src="img/portfolio7.jpg" alt="" /></a>
-                  <a href="img/portfolio8.jpg" ><img src="img/portfolio8.jpg" alt="" /></a>
-                  <a href="img/project1-1.jpg" class="landscape"><img src="img/project1-1.jpg" alt="" /></a>
-                  <a href="img/project2-1.jpg"><img src="img/project2-1.jpg" alt="" /></a>
-                  <a href="img/project3-1.jpg"><img src="img/project3-1.jpg" alt="" /></a>
-                  <a href="img/project4-1.jpg" class="landscape"><img src="img/project4-1.jpg" alt="" /></a>
+                    {% assign sorted_projects = site.projects | sort: 'ordering' | reverse %}
+                    {% for project in sorted_projects limit:5 %}
+                        {% for image in project.images %}
+                            <a href="{{ image }}" class="landscape"><img src="{{ image }}" alt="{{ project.title }}" /></a>
+                        {% endfor %}
+                    {% endfor %}
                 </div>
             </div>
         </section>
