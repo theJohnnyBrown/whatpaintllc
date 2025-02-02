@@ -1,4 +1,5 @@
 ---
+ordering: 11
 title: "Project 11"
 description: "Expert craftsmanship in painting."
 images:

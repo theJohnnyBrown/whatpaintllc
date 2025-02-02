@@ -1,4 +1,5 @@
 ---
+ordering: 7
 title: "Project 7"
 description: "Transforming properties with professional painting services."
 images:

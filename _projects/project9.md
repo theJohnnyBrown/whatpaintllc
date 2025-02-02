@@ -1,4 +1,5 @@
 ---
+ordering: 9
 title: "Project 9"
 description: "Enhancing the aesthetic appeal of properties."
 images:

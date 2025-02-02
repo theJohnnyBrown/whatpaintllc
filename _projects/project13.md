@@ -1,4 +1,5 @@
 ---
+ordering: 13
 title: "Project 13"
 description: "Finish and trim paint on a new construction project."
 images:

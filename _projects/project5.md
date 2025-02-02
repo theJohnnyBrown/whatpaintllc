@@ -1,4 +1,5 @@
 ---
+ordering: 5
 title: "Project 5"
 description: "Quality paint jobs for happy customers."
 images:

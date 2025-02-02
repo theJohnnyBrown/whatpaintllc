@@ -1,4 +1,5 @@
 ---
+ordering: 12
 title: "Project 12"
 description: "Painted house and siding and concrete patio."
 images:

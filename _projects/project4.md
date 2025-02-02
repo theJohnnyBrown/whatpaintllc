@@ -1,4 +1,5 @@
 ---
+ordering: 4
 title: "Project 4"
 description: "Painted house and siding and concrete patio."
 images:

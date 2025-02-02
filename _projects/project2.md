@@ -1,4 +1,5 @@
 ---
+ordering: 2
 title: "Project 2"
 description: "A beautiful transformation with quality paint jobs."
 images:

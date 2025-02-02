@@ -1,4 +1,5 @@
 ---
+ordering: 6
 title: "Project 6"
 description: "Expert craftsmanship in painting."
 images:

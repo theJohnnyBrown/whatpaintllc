@@ -1,4 +1,5 @@
 ---
+ordering: 3
 title: "Project 3"
 description: "Enhancing the aesthetic appeal of properties."
 images:

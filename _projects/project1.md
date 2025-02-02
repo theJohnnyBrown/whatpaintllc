@@ -1,4 +1,5 @@
 ---
+ordering: 1
 title: "Project 1"
 description: "Showcasing our expertise in painting and property transformation."
 images:

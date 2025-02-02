@@ -1,4 +1,5 @@
 ---
+ordering: 10
 title: "Project 10"
 description: "Quality paint jobs for happy customers."
 images:

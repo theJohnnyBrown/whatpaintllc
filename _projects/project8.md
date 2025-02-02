@@ -1,4 +1,5 @@
 ---
+ordering: 8
 title: "Project 8"
 description: "Showcasing our expertise in painting and property transformation."
 images:
