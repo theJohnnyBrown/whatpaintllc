@@ -109,7 +109,7 @@
             <div class="content">
                 <div class="gallery">
                     {% assign sorted_projects = site.projects | sort: 'ordering' | reverse %}
-                    {% for project in sorted_projects limit:5 %}
+                    {% for project in sorted_projects offset:6 limit:3 %}
                         {% for image in project.images %}
                             <a href="{{ image }}" {% if forloop.first %}class="landscape"{% endif %}><img src="{{ image }}" alt="{{ project.title }}" /></a>
                         {% endfor %}
