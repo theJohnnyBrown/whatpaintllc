@@ -75,7 +75,9 @@
                 <div class="gallery">
                     {% assign latest_project = site.projects | sort: 'ordering' | last %}
                     {% for image in latest_project.images %}
-                        <a href="{{ image }}" {% if forloop.first %}class="landscape"{% endif %}><img src="{{ image }}" alt="{{ latest_project.title }}" /></a>
+                      <a href="{{ image }}" {% if forloop.first %}class="landscape"{% endif %}>
+                        {% include media.html src=image alt=latest_project.title %}
+                      </a>
                     {% endfor %}
                 </div>
             </div>
@@ -94,8 +96,10 @@
                     {% for project in sorted_projects offset:1 limit:5 %}
                       <item class="homepage-project">
                         {% for image in project.images %}
-                            <a href="{{ image }}" {% if forloop.first %}class="landscape"{% endif %}><img src="{{ image }}" alt="{{ project.title }}" /></a>
-                            {% if forloop.first %}
+                          <a href="{{ image }}" {% if forloop.first %}class="landscape"{% endif %}>
+                            {% include media.html src=image alt=project.title %}
+                          </a>
+                          {% if forloop.first %}
                               <p class="homepage-project-description">
                                {% if project.description %}
                                  {{ project.description }}
@@ -103,7 +107,7 @@
                                  {{ "Project " | append: project.ordering }}
                                {% endif %}
                               </p>
-                            {% endif %}
+                          {% endif %}
                           </item>
                         {% endfor %}
                     {% endfor %}
@@ -123,7 +127,9 @@
                     {% for project in sorted_projects offset:6 limit:3 %}
 
                         {% for image in project.images %}
-                            <a href="{{ image }}" {% if forloop.first %}class="landscape"{% endif %}><img src="{{ image }}" alt="{{ project.title }}" /></a>
+                            <a href="{{ image }}" {% if forloop.first %}class="landscape"{% endif %}>
+                              {% include media.html src=image alt=project.title %}
+                            </a>
                         {% endfor %}
                     {% endfor %}
                 </div>

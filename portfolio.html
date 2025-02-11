@@ -54,7 +54,9 @@
           <div class="content">
             <div class="gallery">
               {% for image in project.images %}
-                <a href="{{ image }}" {% if forloop.first %}class="landscape"{% endif %}><img alt="{{ project.title }} - Image {{ forloop.index }}" src="{{ image }}"/></a>
+                <a href="{{ image }}" {% if forloop.first %}class="landscape"{% endif %}>
+                  {% include media.html src=image alt=project.title %}
+                </a>
               {% endfor %}
             </div>
           </div>

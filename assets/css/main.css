@@ -3884,3 +3884,8 @@ p.homepage-project-description {
     margin: 1.25rem 0 0 1.25rem;
     width: 100%;
 }
+.gallery video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}

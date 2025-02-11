@@ -1,0 +1,8 @@
+{% if include.src contains '.mp4' %}
+    <video width="100%" height="100%" controls preload="metadata" {% if include.class %}class="{{ include.class }}"{% endif %}>
+        <source src="{{ include.src }}" type="video/mp4">
+        Your browser does not support video.
+    </video>
+{% else %}
+    <img src="{{ include.src }}" alt="{{ include.alt | default: '' }}" {% if include.class %}class="{{ include.class }}"{% endif %} />
+{% endif %}
