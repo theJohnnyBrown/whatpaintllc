@@ -2934,6 +2934,10 @@ a.arrow:before {
     width: calc(100% + 1.25rem);
 }
 
+.gallery {
+    margin-bottom: 12px;
+}
+
 .gallery a {
     border-bottom: 0;
     display: block;

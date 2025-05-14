@@ -1,0 +1,176 @@
+---
+# Portfolio page with pagination
+---
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>What Paint LLC - Portfolio</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    {% include chattysun.html %}
+</head>
+<body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Intro -->
+        <section class="intro">
+            <header>
+                <h1>Our Portfolio</h1>
+                <p>Showcasing Our Expertise in Painting and Property Transformation</p>
+                <ul class="actions">
+                    <li><a href="#first" class="arrow scrolly"><span class="label">Next</span></a></li>
+                </ul>
+            </header>
+            <div class="content">
+                <span class="image fill" data-position="center"><img src="/img/portfolio1.jpg" alt="" /></span>
+            </div>
+        </section>
+
+        <!-- Section -->
+        <section id="first">
+            <header>
+                <h2>Project Showcase</h2>
+            </header>
+            <div class="content">
+                <p><strong>At What Paint LLC</strong>, we take pride in our work. Below you'll find a selection of our projects, demonstrating our expertise in both residential and commercial painting.</p>
+                <p>Page {{ page_num }} of {{ total_pages }}</p>
+            </div>
+        </section>
+
+        {% assign sorted_projects = site.projects | sort: 'ordering' | reverse %}
+        {% assign total_projects = sorted_projects | size %}
+        {% assign page_num = 1 %}
+        {% if page.url contains 'page' %}
+          {% assign page_path_parts = page.url | split: '/' %}
+          {% for part in page_path_parts %}
+            {% if part contains 'page' %}
+              {% assign page_num = part | remove: 'page' | plus: 0 %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+        
+        {% assign start_index = page_num | minus: 1 | times: 10 %}
+        {% assign end_index = start_index | plus: 10 %}
+        {% assign total_pages = total_projects | divided_by: 10.0 | ceil %}
+        
+        {% for project in sorted_projects limit: 10 offset: start_index %}
+        <section>
+          <header>
+            <h2>
+              {% if forloop.index <= 2 and page_num == 1 %}
+                Recent Project
+              {% else %}
+                Project {{ project.ordering }}
+              {% endif %}
+            </h2>
+            <p>{{ project.description }}</p>
+          </header>
+          <div class="content">
+            <div class="gallery">
+              {% for image in project.images %}
+                {% assign full_image_path = '/' | append: image %}
+                <a href="{{ full_image_path }}" {% if forloop.first %}class="landscape"{% endif %}>
+                  {% include media.html src=full_image_path alt=project.title %}
+                </a>
+              {% endfor %}
+            </div>
+          </div>
+        </section>
+        {% endfor %}
+
+        <!-- Pagination -->
+        {% if total_pages > 1 %}
+        <section>
+          <header>
+            <h2>Portfolio Pages</h2>
+          </header>
+          <div class="content">
+            <p>Page {{ page_num }} of {{ total_pages }}</p>
+            <ul class="actions">
+              {% if page_num > 1 %}
+                {% assign prev_page = page_num | minus: 1 %}
+                {% if prev_page == 1 %}
+                  <li><a href="/portfolio/" class="button">Previous</a></li>
+                {% else %}
+                  <li><a href="/portfolio/page{{ prev_page }}/" class="button">Previous</a></li>
+                {% endif %}
+              {% endif %}
+              
+              {% for p in (1..total_pages) %}
+                {% if p == page_num %}
+                  <li><a href="#" class="button primary">{{ p }}</a></li>
+                {% elsif p == 1 %}
+                  <li><a href="/portfolio/" class="button">{{ p }}</a></li>
+                {% else %}
+                  <li><a href="/portfolio/page{{ p }}/" class="button">{{ p }}</a></li>
+                {% endif %}
+              {% endfor %}
+              
+              {% if page_num < total_pages %}
+                {% assign next_page = page_num | plus: 1 %}
+                <li><a href="/portfolio/page{{ next_page }}/" class="button">Next</a></li>
+              {% endif %}
+            </ul>
+          </div>
+        </section>
+        {% endif %}
+
+        <!-- Section -->
+        <section>
+            <header>
+                <h2>Ready to Start Your Project?</h2>
+            </header>
+            <div class="content">
+                <p><strong>Let's bring your vision to life.</strong> Whether you're an investor looking to flip a property or a commercial property owner aiming to attract new tenants, What Paint LLC has the expertise to deliver outstanding results.</p>
+                <ul class="actions">
+                    <li><a href="/index.html#contact" class="button primary large">Get in Touch</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <section>
+            <header>
+                <h2>Get in touch</h2>
+            </header>
+            <div class="content">
+                <p><strong>Ready to start your project?</strong> Contact us today for a consultation. We&apos;re here to answer your questions and provide the expert painting services you need.</p>
+            </div>
+            <footer>
+                <ul class="items">
+                    <li>
+                        <h3>Email</h3>
+                        <a href="#">info@whatpaintllc.com</a>
+                    </li>
+                    <li>
+                        <h3>Phone</h3>
+                        <a href="tel:321-326-4153">321-326-4153</a>
+                    </li>
+                    <li>
+                        <h3>Address</h3>
+                        <span>PO Box 22142<br />
+                        Knoxville, TN 37933</span>
+                    </li>
+
+                </ul>
+            </footer>
+        </section>
+
+        <!-- Copyright -->
+        <div class="copyright">&copy; What Paint LLC. All rights reserved.  Design: <a href="https://html5up.net">HTML5 UP</a>. </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/jquery.scrolly.min.js"></script>
+    <script src="/assets/js/browser.min.js"></script>
+    <script src="/assets/js/breakpoints.min.js"></script>
+    <script src="/assets/js/util.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+</body>
+</html>

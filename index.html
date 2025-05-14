@@ -27,7 +27,7 @@
                 </ul>
             </header>
             <div class="content">
-                <span class="image fill" data-position="center"><img src="img/portfolio1.jpg" alt="" /></span>
+                <span class="image fill" data-position="center"><img src="/img/portfolio1.jpg" alt="" /></span>
             </div>
         </section>
 
@@ -38,10 +38,10 @@
             </header>
             <div class="content">
                 <p><strong>At What Paint LLC</strong>, we pride ourselves on being the go-to painting experts for investor flips and commercial rental properties. Understanding the nuances and demands of the real estate market, we tailor our services to meet the unique needs of investors and commercial property owners.</p>
-                <span class="image main"><img src="img/portfolio3.jpg" alt="" /></span>
+                <span class="image main"><img src="/img/portfolio3.jpg" alt="" /></span>
                 <ul class="actions">
                     <li><a href="#contact" class="button primary large">Get Started</a></li>
-					<li><a href="portfolio.html" class="button large">Portfolio</a></li>
+					<li><a href="/portfolio/" class="button large">Portfolio</a></li>
                 </ul>
             </div>
         </section>
@@ -70,14 +70,15 @@
                 <h2>Our Portfolio</h2>
             </header>
             <div class="content">
-                <p><strong><a href="/portfolio.html">Explore our diverse portfolio</a></strong> showcasing our expertise in transforming properties through our professional painting services.</p>
+                <p><strong><a href="/portfolio/">Explore our diverse portfolio</a></strong> showcasing our expertise in transforming properties through our professional painting services.</p>
 
                 <!-- Gallery -->
                 <div class="gallery">
                     {% assign latest_project = site.projects | sort: 'ordering' | last %}
                     {% for image in latest_project.images %}
-                      <a href="{{ image }}" {% if forloop.first %}class="landscape"{% endif %}>
-                        {% include media.html src=image alt=latest_project.title %}
+                      {% assign full_image_path = '/' | append: image %}
+                      <a href="{{ full_image_path }}" {% if forloop.first %}class="landscape"{% endif %}>
+                        {% include media.html src=full_image_path alt=latest_project.title %}
                       </a>
                     {% endfor %}
                 </div>
@@ -97,8 +98,9 @@
                     {% for project in sorted_projects offset:1 limit:5 %}
                       <item class="homepage-project">
                         {% for image in project.images %}
-                          <a href="{{ image }}" {% if forloop.first %}class="landscape"{% endif %}>
-                            {% include media.html src=image alt=project.title %}
+                          {% assign full_image_path = '/' | append: image %}
+                          <a href="{{ full_image_path }}" {% if forloop.first %}class="landscape"{% endif %}>
+                            {% include media.html src=full_image_path alt=project.title %}
                           </a>
                           {% if forloop.first %}
                               <p class="homepage-project-description">
@@ -113,6 +115,9 @@
                         {% endfor %}
                     {% endfor %}
                 </div>
+                <ul class="actions">
+                  <li><a href="/portfolio/" class="button primary">View More Projects</a></li>
+                </ul>
             </div>
         </section>
 
@@ -125,15 +130,21 @@
             <div class="content">
                 <div class="gallery">
                     {% assign sorted_projects = site.projects | sort: 'ordering' | reverse %}
-                    {% for project in sorted_projects offset:6 limit:3 %}
-
+                    {% for project in sorted_projects offset:6 limit:4 %}
                         {% for image in project.images %}
-                            <a href="{{ image }}" {% if forloop.first %}class="landscape"{% endif %}>
-                              {% include media.html src=image alt=project.title %}
+                            {% assign full_image_path = '/' | append: image %}
+                            <a href="{{ full_image_path }}" {% if forloop.first %}class="landscape"{% endif %}>
+                              {% include media.html src=full_image_path alt=project.title %}
                             </a>
                         {% endfor %}
                     {% endfor %}
                 </div>
+                {% assign project_count = site.projects | size %}
+                {% if project_count > 10 %}
+                <ul class="actions">
+                  <li><a href="/portfolio/page2/" class="button">View Older Projects</a></li>
+                </ul>
+                {% endif %}
             </div>
         </section>
 
