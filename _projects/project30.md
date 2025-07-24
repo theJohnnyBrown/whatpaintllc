@@ -1,15 +1,17 @@
 ---
-ordering: 29
-title: "Deck paint is done for a home owner"
-description: "See the before-and-after view of this freshly painted deck"
+ordering: 30
+title: "A new home owner had her home freshly painted"
+description: "Attention to detail and jobsite cleanliness made this new construction project look its best"
 images:
-    - img/project30/IMG_3953.jpg
-    - img/project30/IMG_3954.jpg
-    - img/project30/IMG_3955.jpg
-    - img/project30/IMG_3958.jpg
-    - img/project30/IMG_3959.jpg
-    - img/project30/IMG_3949.jpg
-    - img/project30/IMG_3950.jpg
-    - img/project30/IMG_3951.jpg
-    - img/project30/IMG_3952.jpg
+    - img/project31/IMG_4027.jpg
+    - img/project31/IMG_4028.jpg
+    - img/project31/IMG_4029.jpg
+    - img/project31/IMG_4030.jpg
+    - img/project31/IMG_4032.jpg
+    - img/project31/IMG_4033.jpg
+    - img/project31/IMG_4035.jpg
+    - img/project31/IMG_4036.jpg
+    - img/project31/IMG_4038.jpg
+    - img/project31/IMG_4039.jpg
+    - img/project31/IMG_4040.jpg
 ---

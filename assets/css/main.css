@@ -3614,6 +3614,10 @@ a.arrow:before {
     width: calc(50% - 1.25rem);
 }
 
+.gallery p {
+    margin: 1.25rem 0 0 1.25rem;
+}
+
 .gallery a img {
     display: block;
     height: 25vw;

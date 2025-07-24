@@ -75,6 +75,7 @@
                 <!-- Gallery -->
                 <div class="gallery">
                     {% assign latest_project = site.projects | sort: 'ordering' | last %}
+                    <p>{{ latest_project.title }}</p>
                     {% for image in latest_project.images %}
                       {% assign full_image_path = '/' | append: image %}
                       <a href="{{ full_image_path }}" {% if forloop.first %}class="landscape"{% endif %}>
